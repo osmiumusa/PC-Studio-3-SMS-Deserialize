@@ -164,8 +164,12 @@ void OLE_to_datestring(double ole, char* out) {
 		return;
 	}
 	time_t seconds = (time_t)(-2209161600 + (long int)(ole*24*60*60));
-	asctime_r(gmtime(&seconds),out);
-	out[strlen(out)-1] = 0;
+
+	//Uncomment for human readable date time
+	//asctime_r(gmtime(&seconds),out);
+	//out[strlen(out)-1] = 0;
+
+	sprintf(out,"%ld",(long int)seconds);
 }
 
 //http://stackoverflow.com/a/22284011/1461223
